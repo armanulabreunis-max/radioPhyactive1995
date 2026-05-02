@@ -148,12 +148,12 @@
 <script>
 const ELEMENTS = [
   {
-    id: 'uranium', name: 'Uranyum-238', symbol: 'U', atomicNum: 92,
+    id: 'uranium', name: 'Uranium-238', symbol: 'U', atomicNum: 92,
     color: '#4a7a1a', glowColor: 0x88ff22, rockColor: 0x6a7a4a,
-    halfLife: '4.5 milyar yıl', activity: 0.15,
+    halfLife: '4.5 billion years', activity: 0.15,
     tickRate: 0.8, maxCPM: 180, doseFactor: 0.8,
-    description: 'α yayıcı', activityPct: 20,
-    emission: 'Alfa (α) partikülleri yayar.\nDüşük penetrasyon — deri dışarıdan korur,\nancak solunursa iç organlara zararlıdır.'
+    description: 'α emitter', activityPct: 20,
+    emission: 'It emits alpha (α) particles.\nLow penetration — your skin protects you against these particles,\but if you inhale it, it damages your internal organs.'
   },
   {
     id: 'thorium', name: 'Toryum-232', symbol: 'Th', atomicNum: 90,
@@ -300,7 +300,7 @@ function playTick() {
   osc.type = 'sawtooth';
   osc.frequency.setValueAtTime(2800, now);
   osc.frequency.exponentialRampToValueAtTime(400, now + 0.04);
-  gain.gain.setValueAtTime(0.6, now);
+  gain.gain.setValueAtTime(0.8, now);
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
   osc.connect(filter);
   filter.connect(gain);
