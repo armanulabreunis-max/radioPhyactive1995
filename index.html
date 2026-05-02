@@ -141,14 +141,14 @@
 
   <button id="elements-btn">⬡ ELEMENTLER</button>
   <div id="hint">Geiger sayacını sürükleyin • Örneğe yaklaştırın</div>
-  <div id="drag-hint">SÜRÜKLE</div>
+  <div id="drag-hint">DRAG</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const ELEMENTS = [
   {
-    id: 'uranium', name: 'Uranium-238', symbol: 'U', atomicNum: 92,
+    id: 'uranium', name: 'Uranium-238☢️', symbol: 'U', atomicNum: 92,
     color: '#4a7a1a', glowColor: 0x88ff22, rockColor: 0x6a7a4a,
     halfLife: '4.5 billion years', activity: 0.15,
     tickRate: 0.8, maxCPM: 180, doseFactor: 0.8,
@@ -156,7 +156,7 @@ const ELEMENTS = [
     emission: 'It emits alpha (α) particles.\nLow penetration — your skin protects you against these particles,\but if you inhale it, it damages your internal organs.'
   },
   {
-    id: 'thorium', name: 'Toryum-232', symbol: 'Th', atomicNum: 90,
+    id: 'thorium', name: 'Thorium-232☢️', symbol: 'Th', atomicNum: 90,
     color: '#8a7a1a', glowColor: 0xffee22, rockColor: 0x8a7a5a,
     halfLife: '14 milyar yıl', activity: 0.11,
     tickRate: 0.5, maxCPM: 120, doseFactor: 0.5,
@@ -164,7 +164,7 @@ const ELEMENTS = [
     emission: 'Alfa (α) partikülleri yayar.\nÇok uzun yarı ömrü nedeniyle\naktivitesi son derece düşüktür.'
   },
   {
-    id: 'radium', name: 'Radyum-226', symbol: 'Ra', atomicNum: 88,
+    id: 'radium', name: 'Radium-226☢️', symbol: 'Ra', atomicNum: 88,
     color: '#1a6a8a', glowColor: 0x22eeff, rockColor: 0x4a6a7a,
     halfLife: '1600 yıl', activity: 0.92,
     tickRate: 4.5, maxCPM: 2200, doseFactor: 18,
@@ -172,7 +172,7 @@ const ELEMENTS = [
     emission: 'Alfa (α) + Gama (γ) yayar.\nGama ışınları yüksek penetrasyonludur,\nkurşun zırh gerektirir.'
   },
   {
-    id: 'cesium', name: 'Sezyum-137', symbol: 'Cs', atomicNum: 55,
+    id: 'cesium', name: 'Cesium-137☢️', symbol: 'Cs', atomicNum: 55,
     color: '#8a1a6a', glowColor: 0xff22cc, rockColor: 0x7a4a6a,
     halfLife: '30 yıl', activity: 0.78,
     tickRate: 3.2, maxCPM: 1400, doseFactor: 12,
@@ -180,7 +180,7 @@ const ELEMENTS = [
     emission: 'Beta (β) + Gama (γ) yayar.\nBeta partikülleri orta penetrasyonlu;\ngama ışınları için kalın beton gerekir.'
   },
   {
-    id: 'cobalt', name: 'Kobalt-60', symbol: 'Co', atomicNum: 27,
+    id: 'cobalt', name: 'Cobalt-60☢️', symbol: 'Co', atomicNum: 27,
     color: '#1a3a8a', glowColor: 0x2266ff, rockColor: 0x4a5a7a,
     halfLife: '5.3 yıl', activity: 0.95,
     tickRate: 5.5, maxCPM: 3800, doseFactor: 30,
@@ -188,15 +188,15 @@ const ELEMENTS = [
     emission: 'Beta (β) + Gama (γ) yayar.\nİki yüksek enerjili gama fotonu üretir\n(1.17 ve 1.33 MeV). Tıpta kullanılır.'
   },
   {
-    id: 'polonium', name: 'Polonyum-210', symbol: 'Po', atomicNum: 84,
+    id: 'polonium', name: 'Polonium-210☢️☣️', symbol: 'Po', atomicNum: 84,
     color: '#8a2a1a', glowColor: 0xff6622, rockColor: 0x7a4a3a,
     halfLife: '138 gün', activity: 0.99,
-    tickRate: 7.0, maxCPM: 5500, doseFactor: 48,
+    tickRate: 7.0, maxCPM: 5600, doseFactor: 48,
     description: 'α yayıcı (tehlikeli)', activityPct: 99,
     emission: 'Alfa (α) yayar — neredeyse saf.\nGama yok, ancak son derece toksik;\nmikrogram miktarlar öldürücüdür.'
   },
   {
-    id: 'strontium', name: 'Stronsiyum-90', symbol: 'Sr', atomicNum: 38,
+    id: 'strontium', name: 'Strontium-90☢️', symbol: 'Sr', atomicNum: 38,
     color: '#2a6a4a', glowColor: 0x22ff88, rockColor: 0x4a7a5a,
     halfLife: '29 yıl', activity: 0.72,
     tickRate: 2.8, maxCPM: 1100, doseFactor: 9,
@@ -204,7 +204,7 @@ const ELEMENTS = [
     emission: 'Beta (β) yayar.\nKemiklere birikerek kemik iliğine\nve kemik kanserine yol açabilir.'
   },
   {
-    id: 'iodine', name: 'İyot-131', symbol: 'I', atomicNum: 53,
+    id: 'iodine', name: 'Iodine-131☢️', symbol: 'I', atomicNum: 53,
     color: '#6a1a8a', glowColor: 0xaa22ff, rockColor: 0x6a4a7a,
     halfLife: '8 gün', activity: 0.85,
     tickRate: 3.8, maxCPM: 1800, doseFactor: 14,
@@ -212,7 +212,7 @@ const ELEMENTS = [
     emission: 'Beta (β) + Gama (γ) yayar.\nTiroid bezinde birikerek\ntiroid kanserine neden olabilir.'
   },
   {
-    id: 'plutonium', name: 'Plutonyum-239', symbol: 'Pu', atomicNum: 94,
+    id: 'plutonium', name: 'Plutonium-239☢️', symbol: 'Pu', atomicNum: 94,
     color: '#5a1a1a', glowColor: 0xff3322, rockColor: 0x7a3a3a,
     halfLife: '24100 yıl', activity: 0.88,
     tickRate: 4.2, maxCPM: 2600, doseFactor: 22,
@@ -220,7 +220,7 @@ const ELEMENTS = [
     emission: 'Alfa (α) + az Gama (γ) yayar.\nKimyasal toksisite de çok yüksektir;\nnükleer silah hammaddesidir.'
   },
   {
-    id: 'americium', name: 'Amerikyum-241', symbol: 'Am', atomicNum: 95,
+    id: 'americium', name: 'Americium-241☢️', symbol: 'Am', atomicNum: 95,
     color: '#4a4a1a', glowColor: 0xddff22, rockColor: 0x7a7a4a,
     halfLife: '432 yıl', activity: 0.65,
     tickRate: 2.2, maxCPM: 900, doseFactor: 7,
@@ -228,7 +228,7 @@ const ELEMENTS = [
     emission: 'Alfa (α) + düşük Gama (γ) yayar.\nDuman dedektörlerinde kullanılır;\nevdeki en yaygın radyoaktif element.'
   },
   {
-    id: 'radon', name: 'Radon-222', symbol: 'Rn', atomicNum: 86,
+    id: 'radon', name: 'Radon-222☢️', symbol: 'Rn', atomicNum: 86,
     color: '#1a5a5a', glowColor: 0x22ffee, rockColor: 0x3a6a6a,
     halfLife: '3.8 gün', activity: 0.70,
     tickRate: 2.5, maxCPM: 980, doseFactor: 8,
@@ -236,7 +236,7 @@ const ELEMENTS = [
     emission: 'Alfa (α) yayar — soy gaz formunda.\nAkciğerlere dolarak iç radyasyona\nyol açar; binalarda birikebiilir.'
   },
   {
-    id: 'technetium', name: 'Teknesyum-99m', symbol: 'Tc', atomicNum: 43,
+    id: 'technetium', name: 'Technetium-99m☢️', symbol: 'Tc', atomicNum: 43,
     color: '#1a4a6a', glowColor: 0x2299ff, rockColor: 0x3a5a7a,
     halfLife: '6 saat', activity: 0.55,
     tickRate: 1.8, maxCPM: 720, doseFactor: 4,
@@ -244,7 +244,7 @@ const ELEMENTS = [
     emission: 'Sadece Gama (γ) yayar.\nTıpta görüntüleme için idealdir;\nbeta olmadığından dokuya zarar vermez.'
   },
   {
-    id: 'tritium', name: 'Trityum-3', symbol: 'T', atomicNum: 1,
+    id: 'tritium', name: 'Tritium-3☢️', symbol: 'T', atomicNum: 1,
     color: '#1a7a6a', glowColor: 0x22ffcc, rockColor: 0x3a7a6a,
     halfLife: '12.3 yıl', activity: 0.30,
     tickRate: 0.9, maxCPM: 320, doseFactor: 1.2,
@@ -252,7 +252,7 @@ const ELEMENTS = [
     emission: 'Çok düşük enerjili Beta (β) yayar.\nBir kağıt yaprağı bile durdurabilir;\ndış maruziyette neredeyse risksizdir.'
   },
   {
-    id: 'curium', name: 'Küriyum-244', symbol: 'Cm', atomicNum: 96,
+    id: 'curium', name: 'Curium-244☢️', symbol: 'Cm', atomicNum: 96,
     color: '#5a2a6a', glowColor: 0xcc44ff, rockColor: 0x6a4a7a,
     halfLife: '18 yıl', activity: 0.91,
     tickRate: 4.8, maxCPM: 3200, doseFactor: 26,
@@ -260,7 +260,7 @@ const ELEMENTS = [
     emission: 'Alfa (α) + Nötron (n) yayar.\nSpontane fisyon nedeniyle nötron\nyayımı ekstra tehlike oluşturur.'
   },
   {
-    id: 'fermium', name: 'Fermiyum-257', symbol: 'Fm', atomicNum: 100,
+    id: 'fermium', name: 'Fermium-257☢️', symbol: 'Fm', atomicNum: 100,
     color: '#6a3a1a', glowColor: 0xff8833, rockColor: 0x7a5a3a,
     halfLife: '100 gün', activity: 0.97,
     tickRate: 6.2, maxCPM: 4800, doseFactor: 38,
