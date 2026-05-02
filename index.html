@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Radyoaktif Laboratuvar</title>
+<title>Radioactive Laboratory</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { overflow: hidden; background: #0a0a0f; font-family: 'Courier New', monospace; }
@@ -126,13 +126,13 @@
 <div id="credits">MADE BY EducationED • UFAGS PROJECT 2010</div>
 <div id="ui">
   <div id="info-panel">
-    <h4>RADYOAKTİF ANALİZ</h4>
+    <h4>RADIOACTIVE ANALYSIS</h4>
     <div class="info-row">
       <span class="info-label">Element</span>
       <span class="info-value" id="el-name-display">—</span>
     </div>
     <div class="info-row">
-      <span class="info-label">Mesafe</span>
+      <span class="info-label">Distance</span>
       <span class="info-value" id="dist-display">—</span>
     </div>
     <div class="info-row">
@@ -140,7 +140,7 @@
       <span id="cpm-display">0</span>
     </div>
     <div class="info-row">
-      <span class="info-label">Doz Hızı</span>
+      <span class="info-label">Dose Speed</span>
       <span class="info-value" id="dose-display">0 μSv/h</span>
     </div>
     <div style="border-top:1px solid #1a2a1a;margin-top:8px;padding-top:8px;">
@@ -152,11 +152,11 @@
   <div id="tick-indicator">◆ TICK</div>
 
   <div id="elements-panel">
-    <h3>Radyoaktif Elementler</h3>
+    <h3>Radioactive Elements</h3>
     <div id="elements-list"></div>
   </div>
 
-  <button id="elements-btn">⬡ ELEMENTLER</button>
+  <button id="elements-btn">⬡ ElEMENTS</button>
   <div id="hint">Geiger sayacını sürükleyin • Örneğe yaklaştırın</div>
   <div id="drag-hint">DRAG</div>
 </div>
@@ -229,7 +229,7 @@ const ELEMENTS = [
     halfLife: '8 gün', activity: 0.85,
     tickRate: 3.8, maxCPM: 1800, doseFactor: 14,
     description: 'β, γ yayıcı', activityPct: 82,
-    emission: 'Beta (β) + Gama (γ) yayar.\nTiroid bezinde birikerek\ntiroid kanserine neden olabilir.'
+    emission: 'It emits Beta (β) and Gama (γ).\nIt causes cancer by being accumulated in thyroids'
   },
   {
     id: 'plutonium', name: 'Plutonium-239☢️', symbol: 'Pu', atomicNum: 94,
