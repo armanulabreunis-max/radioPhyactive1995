@@ -310,7 +310,7 @@ function initAudio() {
     
     // Arka plan müziğini buradan başlatıyoruz
     const bgMusic = document.getElementById('bg-music');
-    bgMusic.volume = 0.2; // Geiger seslerini duymak için müziği kısık tutalım
+    bgMusic.volume = 0.1; // Geiger seslerini duymak için müziği kısık tutalım
     
     // play() bir "Promise" döndürür, hata vermemesi için catch ekleyelim
     bgMusic.play().catch(error => {
