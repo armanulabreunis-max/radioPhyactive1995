@@ -103,17 +103,21 @@
     writing-mode: vertical-lr; pointer-events: none; display: none;
   }
 
- #credits {
+#credits {
   position: fixed;
-  bottom: 15px; /* Yerden biraz daha yukarıda, daha dengeli durur */
+  bottom: 10px;
   width: 100%;
   text-align: center;
-  color: #ffffff; 
+  color: #ffffff;
+  /* Font ismini mutlaka tırnak içinde yazıyoruz */
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-  font-size: 14px; /* Okunabilirlik için ideal boyut */
+  font-size: 15px;
+  /* ÖNEMLİ: Aşağıdaki iki satır fontun düzleşmesini engeller */
+  text-transform: none; 
+  letter-spacing: 0px; 
   pointer-events: none;
-  z-index: 5;
-  opacity: 0.8; /* Hafif transparanlık ciddiyeti korur */
+  z-index: 20;
+  opacity: 0.8;
 }
 </style>
 </head>
@@ -156,6 +160,9 @@
   <div id="hint">Geiger sayacını sürükleyin • Örneğe yaklaştırın</div>
   <div id="drag-hint">DRAG</div>
 </div>
+<audio id="bg-music" loop>
+  <source src="ambient.mp3" type="audio/mpeg">
+</audio>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -298,7 +305,18 @@ let particles = [];
 let panelOpen = false;
 
 function initAudio() {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Arka plan müziğini buradan başlatıyoruz
+    const bgMusic = document.getElementById('bg-music');
+    bgMusic.volume = 0.2; // Geiger seslerini duymak için müziği kısık tutalım
+    
+    // play() bir "Promise" döndürür, hata vermemesi için catch ekleyelim
+    bgMusic.play().catch(error => {
+      console.log("Müzik çalma başlatılamadı: ", error);
+    });
+  }
 }
 
 function playTick() {
